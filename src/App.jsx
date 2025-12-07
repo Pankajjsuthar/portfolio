@@ -69,12 +69,12 @@ const App = () => {
                 </span>
               </button>
 
-              <button
+              {/* <button
                 onClick={() => setDarkMode(!darkMode)}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-              </button>
+              </button> */}
             </div>
           </div>
         </header>
@@ -85,7 +85,7 @@ const App = () => {
             <img
               src={heroImage}
               alt="Hero Background"
-              className="w-full h-full pt-5 object-cover"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
             {/* Perfect Dark Overlay – text always readable */}
@@ -113,9 +113,10 @@ const App = () => {
                 <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6 max-w-2xl">
                   Full-Stack Dev with experience building scalable apps. JEE Adv{" "}
                   <strong>AIR 9956</strong> | JEE Mains 2020{" "}
-                  <strong>99.63 %tile</strong> | MITACS Research Intern @ Dalhousie
-                  Univ, Canada | Phy, Math Faculty @ K12 Techno Services. Passionate about
-                  clean code, system design & solving real-world problems.
+                  <strong>99.63 %tile</strong> | MITACS Research Intern @
+                  Dalhousie Univ, Canada | Phy, Math Faculty @ K12 Techno
+                  Services. Passionate about clean code, system design & solving
+                  real-world problems.
                 </p>
 
                 {/* Social Links */}
@@ -332,16 +333,42 @@ const App = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <ProjectCard
-                title="US Client Web Platform"
-                description="Full-stack application with React, Node.js, and PostgreSQL. Implemented authentication, payment integration, and real-time features."
-                tags={["React", "Node.js", "PostgreSQL", "Stripe"]}
+                title="DSP-MDM Enterprise Mobility Management"
+                description={[
+                  "Built & deployed a scalable EMM platform managing 200+ drivers with dashboards, APIs & automated workflows. <a href='https://dspmdm.com' target='_blank' class='text-blue-500 underline'>Live Demo</a>.",
+                  "Exposed high-performance REST APIs (Node.js, Express, Flask) for compliance & employee tracking.",
+                  "Developed driver scheduling app with Google Apps Script & JS, fully FMCSA DoT compliant.",
+                  "Enhanced reliability with logging, monitoring dashboards & automated scheduling.",
+                ]}
+                tags={[
+                  "Node.js",
+                  "Python",
+                  "MongoDB",
+                  "Firebase",
+                  "Docker",
+                  "EMM",
+                ]}
                 darkMode={darkMode}
               />
 
               <ProjectCard
-                title="CA Firm Management System"
-                description="Custom ERP solution for a Noida-based CA firm. Automated workflows, document management, and reporting."
-                tags={["Python", "FastAPI", "React", "PDF"]}
+                title="Automation & Web Development Projects - Golden Sparrow LLC"
+                description={[
+                  "Automated US Govt claim form PDF processing, boosting business efficiency by 80%.",
+                  "Upgraded client websites (<a href='https://bluejaydsp.com/' target='_blank' class='text-blue-500 underline'>Bluejay Delivery </a>, <a href='https://www.goldensparrow.us/' target='_blank' class='text-blue-500 underline'>Golden Sparrow LLC </a>, <a href='https://magicwheel.us/' target='_blank' class='text-blue-500 underline'>MagicWheel US </a>) with modern JS, HTML, CSS & EmailJS.",
+                  "Implemented real-time workflows and optimized backend services for speed & scalability.",
+                  "Tech Stack: Node.js, Python, Firebase, Docker, Google Apps Script, Linux CLI.",
+                ]}
+                tags={[
+                  "JavaScript",
+                  "Node.js",
+                  "Python",
+                  "HTML",
+                  "CSS",
+                  "Firebase",
+                  "Automation",
+                  "WebDev",
+                ]}
                 darkMode={darkMode}
               />
 
@@ -473,9 +500,25 @@ const ProjectCard = ({ title, description, tags, darkMode }) => {
       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
         {title}
       </h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-        {description}
-      </p>
+
+      {/* Render description */}
+      {Array.isArray(description) ? (
+        <ul className="text-gray-600 text-xs dark:text-gray-300 mb-4 list-disc list-inside space-y-2">
+          {description.map((point, index) => (
+            <li
+              key={index}
+              className="leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: point }}
+            />
+          ))}
+        </ul>
+      ) : (
+        <p
+          className="text-gray-600 text-xs dark:text-gray-300 mb-4 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      )}
+
       <div className="flex flex-wrap gap-2 mb-4">
         {tags.map((tag) => (
           <span
@@ -486,6 +529,7 @@ const ProjectCard = ({ title, description, tags, darkMode }) => {
           </span>
         ))}
       </div>
+
       <button className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:gap-3 transition-all font-medium">
         View Details <ExternalLink size={16} />
       </button>
