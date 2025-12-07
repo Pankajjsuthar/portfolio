@@ -1,16 +1,82 @@
-# React + Vite
+# 🌐 Personal Portfolio — Pankaj Suthar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the source code for my personal portfolio website.  
+Designed and built using **React**, **Tailwind CSS**, and **Framer Motion**, the site highlights my journey, skills, projects, teaching experience, and professional achievements.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🌙 Dark / Light Mode  
+Interactive theme toggle with smooth transitions using Tailwind’s `dark:` classes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🧭 Timeline Section  
+A custom-built interactive timeline showing:
+- JEE achievements  
+- Research internship at Dalhousie University (MITACS)  
+- Teaching experience (Physics & Maths, K12 Techno Services)  
+- Software engineering and development journey  
 
-## Expanding the ESLint configuration
+Each timeline item supports **JSX descriptions** including clickable external links.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 💼 Projects  
+Showcases selected software engineering projects, including:
+- Fleet Compliance Automation Systems  
+- Automated PDF form filling tools  
+- MERN stack applications  
+- Android Management API projects  
+- CFA Prep Platform (PalsAnalytix)
+
+### 🖼️ Aesthetic UI  
+- Tailwind CSS  
+- Clean, modern card layouts  
+- Smooth animations using Framer Motion  
+- Fully responsive for mobile and desktop devices  
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**  
+- React (Vite)  
+- Tailwind CSS  
+- Framer Motion  
+- Lucide Icons  
+
+**Backend (for some projects):**  
+- Node.js  
+- Express  
+- MongoDB  
+- Firebase / Auth0 (for authentication in other projects)
+
+---
+
+## 📚 Sections Included
+
+- **Hero Section** – Intro, role, and links  
+- **Experience Timeline** – Interactive animated timeline  
+- **Projects Showcase** – Cards with images, descriptions, and tech stack  
+- **Teaching Experience**  
+- **Research Work** – MITACS Globalink Internship  
+- **Contact Section** – Social links and email  
+
+---
+
+## 🔗 Add Your Own Links
+
+The timeline supports JSX descriptions, e.g.:
+
+```jsx
+description={
+  <>
+    MITACS Globalink Research Intern at Dalhousie University.  
+    Worked with Dr. Nur Zincir-Heywood on network security analysis.{" "}
+    <a
+      href="YOUR-LINK-HERE"
+      className="text-blue-600 underline dark:text-blue-400"
+      target="_blank"
+    >
+      View Details
+    </a>
+  </>
+}
