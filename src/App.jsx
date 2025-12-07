@@ -10,11 +10,17 @@ import {
   ExternalLink,
   Copy,
   Check,
+  GraduationCap,
 } from "lucide-react";
 import profileImg from "./img/profile.jpg";
 import resumeUrl from "./resume/pankaj_resume.pdf";
 import iitroparLogo from "./img/iitropar.jpg";
 import heroImage from "./img/hero.jpeg";
+import ncertLogo from "./img/NCERT_Logo.webp";
+import drNur from "./img/drNur.jpg";
+import grad from "./img/grad.jpg";
+import schoolImg from "./img/school.jpg";
+import College from "./img/college.jpg";
 
 const githubUrl = "https://github.com/Pankajjsuthar";
 const linkedinUrl = "https://www.linkedin.com/in/pankajjsuthar/";
@@ -32,7 +38,7 @@ const App = () => {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("pankaj@example.com");
+    navigator.clipboard.writeText("psuthar27302@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -42,7 +48,7 @@ const App = () => {
   };
 
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <div className={darkMode == true ? "dark" : ""}>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         {/* Header */}
         <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
@@ -59,7 +65,7 @@ const App = () => {
               >
                 {copied ? <Check size={20} /> : <Mail size={20} />}
                 <span className="hidden sm:inline text-sm">
-                  {copied ? "Copied!" : "pankaj@example.com"}
+                  {copied ? "Copied!" : "psuthar27302@gmail.com"}
                 </span>
               </button>
 
@@ -169,14 +175,11 @@ const App = () => {
               </div>
             </div>
           </div>
-
-          
         </section>
 
-
         {/* Timeline Section */}
-        <section className="py-12 px-4 bg-white dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-20 px-4 bg-white dark:bg-gray-800">
+          <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
               Journey
             </h2>
@@ -185,12 +188,12 @@ const App = () => {
               {/* Vertical Line */}
               <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
 
-              <div className="space-y-12">
+              <div className="space-y-15">
                 <TimelineItem
                   year="2018"
                   title="The Spark"
                   description="Cleared NTSE scholarship — Top 1000 in India. Started the journey of excellence."
-                  image="📚"
+                  image={ncertLogo}
                   alt="📚"
                   darkMode={darkMode}
                 />
@@ -198,7 +201,22 @@ const App = () => {
                 <TimelineItem
                   year="2020"
                   title="IIT Ropar"
-                  description="JEE Mains 99.63%ile | JEE Advanced AIR 9956. Admitted to IIT Ropar, Electrical Engineering."
+                  description={
+                    <>
+                      JEE Mains 99.63%ile | JEE Advanced AIR 9956. Admitted to
+                      IIT Ropar, Electrical Engineering. Created a YouTube
+                      channel for cryptocurrency knowledge —{" "}
+                      <a
+                        href="https://www.youtube.com/watch?v=BUDexT54TKk&t=25s"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline dark:text-blue-400"
+                      >
+                        Visit Channel
+                      </a>
+                      .
+                    </>
+                  }
                   image={iitroparLogo}
                   alt="📚"
                   darkMode={darkMode}
@@ -208,7 +226,7 @@ const App = () => {
                   year="2022"
                   title="Sports & Leadership"
                   description="Represented IIT Ropar in Inter-IIT Weightlifting. Elected Sports Secretary."
-                  image="🏋️"
+                  image={College}
                   alt="🏋️"
                   darkMode={darkMode}
                 />
@@ -216,8 +234,23 @@ const App = () => {
                 <TimelineItem
                   year="2023"
                   title="Research in Canada"
-                  description="MITACS Globalink Research Intern at Dalhousie University. Worked with Dr. Nur Zincir-Heywood on network security analysis."
-                  image="🔬"
+                  description={
+                    <>
+                      MITACS Globalink Research Intern at Dalhousie University.
+                      Worked with Dr. Nur Zincir-Heywood on network security
+                      analysis. Created some vlogs {" "}
+                      <a
+                        href="https://www.youtube.com/watch?v=Q6nHKfpONrI" // ← add your link here
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline dark:text-blue-400"
+                      >
+                        Here
+                      </a>
+                      .
+                    </>
+                  }
+                  image={drNur}
                   alt="🔬"
                   darkMode={darkMode}
                 />
@@ -225,8 +258,8 @@ const App = () => {
                 <TimelineItem
                   year="2024"
                   title="Building & Freelancing"
-                  description="Software internship with US client. Freelance projects. Cracked SSC CGL. Explored multiple domains."
-                  image="💼"
+                  description={`Graduated from IIT Ropar and continued my Software internship with US client (Golden Sparrow LLC). Grabbed 1 Lakh Freelance project and finished it. Cracked SSC CGL out of 26 lac candidates. Explored multiple domains.`}
+                  image={grad}
                   alt="💼"
                   darkMode={darkMode}
                 />
@@ -234,8 +267,21 @@ const App = () => {
                 <TimelineItem
                   year="2025"
                   title="Teaching & Development"
-                  description="Faculty at K12 Techno Services (Physics & Maths). Building this portfolio to transition to full-time Software Engineering."
-                  image="👨‍🏫"
+                  description={
+                    <>
+                      Faculty at K12 Techno Services (Physics & Maths).{" "}
+                      <a
+                        href="https://x.com/pankajjjsuthar/status/1989311773644599400?s=20"
+                        className="text-blue-600 underline"
+                        target="_blank"
+                      >
+                        Video
+                      </a>
+                      . Building this portfolio to transition to full-time
+                      Software Engineering.
+                    </>
+                  }
+                  image={schoolImg}
                   alt="👨‍🏫"
                   darkMode={darkMode}
                 />
@@ -395,8 +441,12 @@ const TimelineItem = ({ year, title, description, image, alt, darkMode }) => {
       <div className="bg-white dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-lg transition-all">
         <div className="flex gap-4 items-start">
           {/* Image Placeholder */}
-          <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-3xl flex-shrink-0">
-            <img src={image} alt={alt} className="w-full h-full object-cover rounded-lg" />
+          <div className="w-30 h-30 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-3xl flex-shrink-0">
+            <img
+              src={image}
+              alt={alt}
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
 
           {/* Text Content */}
