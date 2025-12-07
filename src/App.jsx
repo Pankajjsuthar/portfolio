@@ -80,12 +80,12 @@ const App = () => {
         </header>
 
         {/* Hero Section */}
-        <section className="py-12 md:py-20 px-4">
+        <section className="relative h-[80vh] md:h-[100vh] overflow-hidden px-4">
           <div className="absolute inset-0 z-0">
             <img
               src={heroImage}
               alt="Hero Background"
-              className="w-full h-full/3 object-cover"
+              className="w-full h-full pt-5 object-cover"
               loading="lazy"
             />
             {/* Perfect Dark Overlay – text always readable */}
@@ -111,11 +111,11 @@ const App = () => {
                   Software Engineer | IIT Ropar
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6 max-w-2xl">
-                  Full-stack developer with experience building scalable
-                  applications. JEE Advanced AIR 9956 | MITACS Research Intern @
-                  Dalhousie University | Former Faculty @ K12 Techno Services.
-                  Passionate about clean code, system design, and solving
-                  real-world problems.
+                  Full-Stack Dev with experience building scalable apps. JEE Adv{" "}
+                  <strong>AIR 9956</strong> | JEE Mains 2020{" "}
+                  <strong>99.63 %tile</strong> | MITACS Research Intern @ Dalhousie
+                  Univ, Canada | Phy, Math Faculty @ K12 Techno Services. Passionate about
+                  clean code, system design & solving real-world problems.
                 </p>
 
                 {/* Social Links */}
@@ -179,7 +179,7 @@ const App = () => {
 
         {/* Timeline Section */}
         <section className="py-20 px-4 bg-white dark:bg-gray-800">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
               Journey
             </h2>
@@ -238,7 +238,7 @@ const App = () => {
                     <>
                       MITACS Globalink Research Intern at Dalhousie University.
                       Worked with Dr. Nur Zincir-Heywood on network security
-                      analysis. Created some vlogs {" "}
+                      analysis. Created some vlogs{" "}
                       <a
                         href="https://www.youtube.com/watch?v=Q6nHKfpONrI" // ← add your link here
                         target="_blank"
