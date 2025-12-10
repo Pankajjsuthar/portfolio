@@ -11,6 +11,7 @@ import {
   Copy,
   Check,
   GraduationCap,
+  Route,
 } from "lucide-react";
 import profileImg from "./img/profile.jpg";
 import resumeUrl from "./resume/pankaj_resume.pdf";
@@ -80,7 +81,7 @@ const App = () => {
         </header>
 
         {/* Hero Section */}
-        <section className="relative h-[80vh] md:h-[100vh] overflow-hidden px-4">
+        <section className="relative min-h-[80vh] md:min-h-[100vh] px-4 pb-16">
           <div className="absolute inset-0 z-0">
             <img
               src={heroImage}
@@ -88,29 +89,32 @@ const App = () => {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-            {/* Perfect Dark Overlay – text always readable */}
             <div className="absolute inset-0 bg-black/70" />
           </div>
+
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
-              {/* Profile Image */}
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-8xl shadow-xl flex-shrink-0">
+            {/* FLEX WRAPPER */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10">
+              {/* IMAGE LEFT */}
+              <div className="w-40 h-40 md:w-64 md:h-64 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shadow-xl flex-shrink-0 overflow-hidden">
                 <img
                   src={profileImg}
                   alt="Pankaj Suthar"
-                  className="rounded-2xl object-cover"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
 
-              {/* Info */}
+              {/* CONTENT RIGHT */}
               <div className="flex-1 text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
                   Pankaj Suthar
                 </h1>
-                <p className="text-xl text-blue-600 dark:text-blue-400 font-medium mb-4">
+
+                <p className="text-md md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-4">
                   Software Engineer | IIT Ropar
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6 max-w-2xl">
+
+                <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed mb-6 max-w-2xl">
                   Full-Stack Dev with experience building scalable apps. JEE Adv{" "}
                   <strong>AIR 9956</strong> | JEE Mains 2020{" "}
                   <strong>99.63 %tile</strong> | MITACS Research Intern @
@@ -119,56 +123,59 @@ const App = () => {
                   real-world problems.
                 </p>
 
-                {/* Social Links */}
+                {/* SOCIAL LINKS */}
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   <SocialLink
                     href={githubUrl}
-                    icon={<Github size={20} />}
+                    icon={<Github size={15} />}
                     label="GitHub"
                   />
                   <SocialLink
                     href={linkedinUrl}
-                    icon={<Linkedin size={20} />}
+                    icon={<Linkedin size={15} />}
                     label="LinkedIn"
                   />
                   <SocialLink
                     href={leetcodeUrl}
-                    icon={<Code2 size={20} />}
+                    icon={<Code2 size={15} />}
                     label="LeetCode"
                   />
                   <SocialLink
                     href={codeforcesUrl}
-                    icon={<Award size={20} />}
+                    icon={<Award size={15} />}
                     label="Codeforces"
                   />
                   <SocialLink
                     href={codechefUrl}
-                    icon={<Award size={20} />}
+                    icon={<Award size={15} />}
                     label="CodeChef"
                   />
                   <SocialLink
                     href={twitterUrl}
-                    icon={<Award size={20} />}
+                    icon={<Award size={15} />}
                     label="X"
                   />
                   <SocialLink
                     href={youtubeUrl}
-                    icon={<Award size={20} />}
+                    icon={<Award size={15} />}
                     label="YouTube"
                   />
                 </div>
 
+                {/* BUTTONS */}
                 <div className="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
                   <button
                     onClick={() => scrollToSection("projects")}
-                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                    className="px-3 py-2 md:px-6 text-sm md:text-lg md:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
                   >
                     View Projects
                   </button>
+
                   <a
                     href={resumeUrl}
                     download="Pankaj_Suthar_Resume.pdf"
-                    className="px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg font-medium transition-colors inline-block"
+                    className="px-3 py-2 md:px-6 text-sm md:text-lg md:py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 
+            text-gray-900 dark:text-white rounded-lg font-medium transition-colors inline-block"
                   >
                     Download Resume
                   </a>
@@ -181,15 +188,18 @@ const App = () => {
         {/* Timeline Section */}
         <section className="py-20 px-4 bg-white dark:bg-gray-800">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-              Journey
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+                Journey
+              </h2>
+              <Route size={32} className="text-blue-600 dark:text-blue-400" />
+            </div>
 
             <div className="relative">
               {/* Vertical Line */}
-              <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
+              <div className="absolute left-5 md:left-8 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
 
-              <div className="space-y-15">
+              <div className="space-y-8 md:space-y-13">
                 <TimelineItem
                   year="2018"
                   title="The Spark"
@@ -432,7 +442,7 @@ const App = () => {
   );
 };
 
-const TimelineItem = ({ year, title, description, image, alt, darkMode }) => {
+const TimelineItem = ({ year, title, description, image, alt }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -452,39 +462,83 @@ const TimelineItem = ({ year, title, description, image, alt, darkMode }) => {
   return (
     <div
       id={`timeline-${year}`}
-      className={`relative pl-20 md:pl-28 transition-all duration-700 ${
+      className={`transition-all duration-700 ${
         isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
       }`}
     >
-      {/* Year Marker */}
-      <div className="absolute left-0 flex items-center">
-        <div className="w-8 md:w-12 h-8 md:h-12 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-sm md:text-base z-10">
-          {year.slice(2)}
-        </div>
-        <div className="w-8 md:w-12 h-0.5 bg-gray-300 dark:bg-gray-600"></div>
-      </div>
-
-      {/* Content Card */}
-      <div className="bg-white dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-lg transition-all">
+      {/* ------------ MOBILE VIEW ------------ */}
+      <div className="md:hidden">
         <div className="flex gap-4 items-start">
-          {/* Image Placeholder */}
-          <div className="w-30 h-30 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-3xl flex-shrink-0">
-            <img
-              src={image}
-              alt={alt}
-              className="w-full h-full object-cover rounded-lg"
-            />
+          {/* Left: Year Badge + Vertical Line */}
+          <div className="flex flex-col items-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 flex items-center justify-center text-white font-bold shadow-md">
+              {year.slice(2)}
+            </div>
+
+            <div className="w-1 h-20 bg-gradient-to-b from-blue-500 via-gray-300 to-transparent dark:from-blue-400 dark:via-gray-600 dark:to-transparent mt-2"></div>
           </div>
 
-          {/* Text Content */}
+          {/* Right: Card */}
           <div className="flex-1">
-            <div className="text-sm text-blue-600 dark:text-blue-400 font-semibold mb-1">
-              {year}
+            <div className="bg-white dark:bg-gray-700 rounded-xl p-4 border border-gray-200 dark:border-gray-600 hover:shadow-lg transition-all">
+              {image && (
+                <img
+                  src={image}
+                  alt={alt}
+                  className="w-full h-40 object-cover rounded-lg mb-3"
+                />
+              )}
+
+              <span className="inline-block text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full mb-2 tracking-wider">
+                {year}
+              </span>
+
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                {title}
+              </h3>
+
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                {description}
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+          </div>
+        </div>
+      </div>
+
+      {/* ------------ DESKTOP VIEW (image-left layout) ------------ */}
+      <div className="hidden md:flex relative pl-32">
+        {/* Year + Horizontal Line */}
+        <div className="absolute left-0 top-6 flex items-center gap-0">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 dark:from-blue-500 dark:to-blue-600 text-white font-bold text-lg flex items-center justify-center shadow-lg">
+            {year.slice(2)}
+          </div>
+          <div className="w-16 h-1.5 bg-gradient-to-r from-blue-600 via-blue-400 to-gray-300 dark:from-blue-500 dark:via-blue-400 dark:to-gray-700"></div>
+        </div>
+
+        {/* Card With Image Left & Content Right */}
+        <div className="bg-white dark:bg-gray-700 rounded-xl p-6 lg:p-7 border border-gray-200 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-xl transition-all flex items-center gap-8 w-full">
+          {/* Left: Image */}
+          {image && (
+            <div className="w-48 h-48 rounded-xl overflow-hidden shadow-md flex-shrink-0">
+              <img
+                src={image}
+                alt={alt}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
+          {/* Right: Content */}
+          <div className="flex-1">
+            <span className="inline-block text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full mb-3 tracking-wider">
+              {year}
+            </span>
+
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
               {title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-base">
               {description}
             </p>
           </div>
@@ -543,7 +597,7 @@ const SocialLink = ({ href, icon, label }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg transition-colors font-medium"
+      className="flex text-xs md:text-md items-center gap-2 px-2 py-1 bg-gray-100 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-lg transition-colors font-medium"
     >
       {icon}
       <span>{label}</span>
