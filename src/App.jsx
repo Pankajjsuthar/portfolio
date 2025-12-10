@@ -34,6 +34,10 @@ const youtubeUrl = "https://www.youtube.com/@iitian_pankaj";
 // const profileImg = './img/profile.jpg';
 // const resumeUrl = './resume/pankaj_resume.pdf';
 
+// components
+import ProjectCard from "./components/ProjectSection";
+import ProjectsSection from "./components/ProjectSection";
+
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -82,6 +86,7 @@ const App = () => {
 
         {/* Hero Section */}
         <section className="relative min-h-[80vh] md:min-h-[100vh] px-4 pb-16">
+          {/* Background */}
           <div className="absolute inset-0 z-0">
             <img
               src={heroImage}
@@ -94,9 +99,12 @@ const App = () => {
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
             {/* FLEX WRAPPER */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-10">
+            <div className="flex flex-col justify-between md:flex-row items-center md:items-center gap-12 md:gap-16">
               {/* IMAGE LEFT */}
-              <div className="w-40 h-40 md:w-64 md:h-64 rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shadow-xl flex-shrink-0 overflow-hidden">
+              <div
+                className="w-40 h-40 md:w-72 md:h-72 rounded-2xl bg-gradient-to-br 
+                      from-blue-400 to-purple-500 shadow-2xl flex-shrink-0 overflow-hidden"
+              >
                 <img
                   src={profileImg}
                   alt="Pankaj Suthar"
@@ -105,19 +113,19 @@ const App = () => {
               </div>
 
               {/* CONTENT RIGHT */}
-              <div className="flex-1 text-center md:text-left">
-                <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+              <div className="flex-1 text-center md:text-left max-w-2xl">
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
                   Pankaj Suthar
                 </h1>
 
-                <p className="text-md md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-4">
+                <p className="text-md md:text-xl text-blue-300 font-medium mb-4">
                   Software Engineer | IIT Ropar
                 </p>
 
-                <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed mb-6 max-w-2xl">
+                <p className="text-gray-200 text-xs md:text-sm leading-relaxed mb-6">
                   Full-Stack Dev with experience building scalable apps. JEE Adv{" "}
-                  <strong>AIR 9956</strong> | JEE Mains 2020{" "}
-                  <strong>99.63 %tile</strong> | MITACS Research Intern @
+                  <strong>AIR 9956</strong> | JEE Mains 2020
+                  <strong> 99.63 %tile</strong> | MITACS Research Intern @
                   Dalhousie Univ, Canada | Phy, Math Faculty @ K12 Techno
                   Services. Passionate about clean code, system design & solving
                   real-world problems.
@@ -166,7 +174,8 @@ const App = () => {
                 <div className="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
                   <button
                     onClick={() => scrollToSection("projects")}
-                    className="px-3 py-2 md:px-6 text-sm md:text-lg md:py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                    className="px-4 py-2 md:px-6 md:py-3 bg-blue-600 hover:bg-blue-700 
+                       text-white rounded-lg font-medium text-sm md:text-lg"
                   >
                     View Projects
                   </button>
@@ -174,8 +183,8 @@ const App = () => {
                   <a
                     href={resumeUrl}
                     download="Pankaj_Suthar_Resume.pdf"
-                    className="px-3 py-2 md:px-6 text-sm md:text-lg md:py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 
-            text-gray-900 dark:text-white rounded-lg font-medium transition-colors inline-block"
+                    className="px-4 py-2 md:px-6 md:py-3 bg-gray-200/20 hover:bg-gray-200/30 
+                       text-white rounded-lg font-medium text-sm md:text-lg inline-block"
                   >
                     Download Resume
                   </a>
@@ -302,13 +311,15 @@ const App = () => {
         </section>
 
         {/* Skills Section */}
-        <section className="py-12 px-4">
+        <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+            {/* Heading */}
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-12 text-center tracking-wide">
               Technical Skills
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {/* Skills Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {[
                 "React.js",
                 "Node.js",
@@ -325,9 +336,12 @@ const App = () => {
               ].map((skill) => (
                 <div
                   key={skill}
-                  className="px-4 py-3 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 text-center text-gray-900 dark:text-white font-medium hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition-all"
+                  className="relative group p-5 rounded-xl bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 border border-gray-200 dark:border-gray-600 text-center text-gray-900 dark:text-white font-semibold shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
                 >
-                  {skill}
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+
+                  <span className="relative z-10">{skill}</span>
                 </div>
               ))}
             </div>
@@ -335,69 +349,7 @@ const App = () => {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="py-12 px-4 bg-white dark:bg-gray-800">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-              Projects
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <ProjectCard
-                title="DSP-MDM Enterprise Mobility Management"
-                description={[
-                  "Built & deployed a scalable EMM platform managing 200+ drivers with dashboards, APIs & automated workflows. <a href='https://dspmdm.com' target='_blank' class='text-blue-500 underline'>Live Demo</a>.",
-                  "Exposed high-performance REST APIs (Node.js, Express, Flask) for compliance & employee tracking.",
-                  "Developed driver scheduling app with Google Apps Script & JS, fully FMCSA DoT compliant.",
-                  "Enhanced reliability with logging, monitoring dashboards & automated scheduling.",
-                ]}
-                tags={[
-                  "Node.js",
-                  "Python",
-                  "MongoDB",
-                  "Firebase",
-                  "Docker",
-                  "EMM",
-                ]}
-                darkMode={darkMode}
-              />
-
-              <ProjectCard
-                title="Automation & Web Development Projects - Golden Sparrow LLC"
-                description={[
-                  "Automated US Govt claim form PDF processing, boosting business efficiency by 80%.",
-                  "Upgraded client websites (<a href='https://bluejaydsp.com/' target='_blank' class='text-blue-500 underline'>Bluejay Delivery </a>, <a href='https://www.goldensparrow.us/' target='_blank' class='text-blue-500 underline'>Golden Sparrow LLC </a>, <a href='https://magicwheel.us/' target='_blank' class='text-blue-500 underline'>MagicWheel US </a>) with modern JS, HTML, CSS & EmailJS.",
-                  "Implemented real-time workflows and optimized backend services for speed & scalability.",
-                  "Tech Stack: Node.js, Python, Firebase, Docker, Google Apps Script, Linux CLI.",
-                ]}
-                tags={[
-                  "JavaScript",
-                  "Node.js",
-                  "Python",
-                  "HTML",
-                  "CSS",
-                  "Firebase",
-                  "Automation",
-                  "WebDev",
-                ]}
-                darkMode={darkMode}
-              />
-
-              <ProjectCard
-                title="Network Security Analysis"
-                description="Research project analyzing messaging app network patterns at Dalhousie University. Data processing and visualization."
-                tags={["Python", "Wireshark", "Data Analysis"]}
-                darkMode={darkMode}
-              />
-
-              <ProjectCard
-                title="Educational Tools"
-                description="Internal platform for K12 with lesson planning, student tracking, and performance analytics for JEE/NEET prep."
-                tags={["React", "Node.js", "Charts.js"]}
-                darkMode={darkMode}
-              />
-            </div>
-          </div>
-        </section>
+        <ProjectsSection />
 
         {/* Contact Section */}
         <section className="py-12 px-4">
@@ -544,49 +496,6 @@ const TimelineItem = ({ year, title, description, image, alt }) => {
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-const ProjectCard = ({ title, description, tags, darkMode }) => {
-  return (
-    <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 border border-gray-200 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-lg transition-all">
-      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-        {title}
-      </h3>
-
-      {/* Render description */}
-      {Array.isArray(description) ? (
-        <ul className="text-gray-600 text-xs dark:text-gray-300 mb-4 list-disc list-inside space-y-2">
-          {description.map((point, index) => (
-            <li
-              key={index}
-              className="leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: point }}
-            />
-          ))}
-        </ul>
-      ) : (
-        <p
-          className="text-gray-600 text-xs dark:text-gray-300 mb-4 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
-      )}
-
-      <div className="flex flex-wrap gap-2 mb-4">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <button className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:gap-3 transition-all font-medium">
-        View Details <ExternalLink size={16} />
-      </button>
     </div>
   );
 };
